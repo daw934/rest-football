@@ -8,5 +8,5 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Links2 {
-    private Team team;
+//    private Team team;
 }

@@ -1,5 +1,5 @@
 
-package pl.example.restfootball.model.newnewmodel;
+package pl.example.restfootball.model.newv2model;
 
 import java.util.HashMap;
 import java.util.List;

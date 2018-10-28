@@ -13,17 +13,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "id",
-    "name",
-    "crestUrl"
+    "name"
 })
-public class Team {
+public class Area {
 
     @JsonProperty("id")
     private Integer id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("crestUrl")
-    private String crestUrl;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -45,16 +42,6 @@ public class Team {
     @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
-    }
-
-    @JsonProperty("crestUrl")
-    public String getCrestUrl() {
-        return crestUrl;
-    }
-
-    @JsonProperty("crestUrl")
-    public void setCrestUrl(String crestUrl) {
-        this.crestUrl = crestUrl;
     }
 
     @JsonAnyGetter

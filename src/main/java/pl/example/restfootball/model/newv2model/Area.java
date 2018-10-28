@@ -1,5 +1,5 @@
 
-package pl.example.restfootball.model.newnewmodel;
+package pl.example.restfootball.model.newv2model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,36 +12,36 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "self",
-    "competition"
+    "id",
+    "name"
 })
-public class Links {
+public class Area {
 
-    @JsonProperty("self")
-    private Self self;
-    @JsonProperty("competition")
-    private Competition competition;
+    @JsonProperty("id")
+    private Integer id;
+    @JsonProperty("name")
+    private String name;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("self")
-    public Self getSelf() {
-        return self;
+    @JsonProperty("id")
+    public Integer getId() {
+        return id;
     }
 
-    @JsonProperty("self")
-    public void setSelf(Self self) {
-        this.self = self;
+    @JsonProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    @JsonProperty("competition")
-    public Competition getCompetition() {
-        return competition;
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
-    @JsonProperty("competition")
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
     }
 
     @JsonAnyGetter

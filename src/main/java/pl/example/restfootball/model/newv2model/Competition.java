@@ -1,5 +1,5 @@
 
-package pl.example.restfootball.model.newnewmodel;
+package pl.example.restfootball.model.newv2model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,17 +13,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "id",
+    "area",
     "name",
-    "crestUrl"
+    "code",
+    "plan",
+    "lastUpdated"
 })
-public class Team {
+public class Competition {
 
     @JsonProperty("id")
     private Integer id;
+    @JsonProperty("area")
+    private Area area;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("crestUrl")
-    private String crestUrl;
+    @JsonProperty("code")
+    private String code;
+    @JsonProperty("plan")
+    private String plan;
+    @JsonProperty("lastUpdated")
+    private String lastUpdated;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -37,6 +46,16 @@ public class Team {
         this.id = id;
     }
 
+    @JsonProperty("area")
+    public Area getArea() {
+        return area;
+    }
+
+    @JsonProperty("area")
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
     @JsonProperty("name")
     public String getName() {
         return name;
@@ -47,14 +66,34 @@ public class Team {
         this.name = name;
     }
 
-    @JsonProperty("crestUrl")
-    public String getCrestUrl() {
-        return crestUrl;
+    @JsonProperty("code")
+    public String getCode() {
+        return code;
     }
 
-    @JsonProperty("crestUrl")
-    public void setCrestUrl(String crestUrl) {
-        this.crestUrl = crestUrl;
+    @JsonProperty("code")
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @JsonProperty("plan")
+    public String getPlan() {
+        return plan;
+    }
+
+    @JsonProperty("plan")
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    @JsonProperty("lastUpdated")
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    @JsonProperty("lastUpdated")
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     @JsonAnyGetter
