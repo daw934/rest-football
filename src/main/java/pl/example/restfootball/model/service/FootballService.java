@@ -7,7 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.example.restfootball.model.newmodel.Table;
+
 import pl.example.restfootball.model.newv2model.Example;
 
 @Service
@@ -16,11 +16,7 @@ public class FootballService implements pl.example.restfootball.model.service.Se
     public static final String serieATable = "http://api.football-data.org/v1/competitions/456/leagueTable";
     public static final String serieATableN = "http://api.football-data.org/v2/competitions/SA/standings";
 
-    @Override
-    public Table getTeams(){
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(serieATeams,Table.class);
-    }
+
     @Override
     public Example getTable1(){
         RestTemplate restTemplate = new RestTemplate();

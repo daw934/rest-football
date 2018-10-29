@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+var json = [ 
+ { color: '#f00' },
+ { color: '#0f0' },
+ { color: '#00f' }
+];
+
+var table1 = '';
+
+$(document).ready(function(){
+$("#number1").click(function(){
+   $("#number1")[0].disabled = true;
+    $('#table').remove();
+$.ajax({
+  url: 'http://localhost:8080/seriea/table',
+  dataType: 'json',
+  type: 'GET',
+  success:function(data){
+      $("#location").append(
+       "<table id='table'><tr><th>Position</th><th>Team</th><th>Played</th><th>Points</th><th>Won</th><th>Lost</th><th>Goals</th></tr></table>")
+      
+   $.each(data, function(i, field){
+	    
+       $("#table").append(
+        "<tr>"
+            +"<td>"+field.position+"</td>"
+        +"<td>"+field.team.name+"</td>"
+        +"<td>"+field.playedGames+"</td>"
+        +"<td>"+field.points+"</td>"
+        +"<td>"+field.won+"</td>"
+        +"<td>"+field.lost+"</td>"
+        +"<td>"+field.goalsFor+"</td>"
+        +"</tr>" )
+    });
+}
+	});
+});
+});
+
+</script>
+</head>
+<body>
+<div>
+<a href="http://localhost:8080/seriea/table" value'tutaj'>tutaj</a>
+</div>
+<button id="number1">Serie A</button>
+<button id="number2">Premier League</button>
+
+<div id='location'>
+      <table id='table'><tr><th>Position</th><th>Team</th><th>Played</th><th>Points</th><th>Won</th><th>Lost</th><th>Goals</th></tr></table>
+    </div>
+</body>
+</html>
