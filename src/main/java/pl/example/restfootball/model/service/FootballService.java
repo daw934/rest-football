@@ -32,7 +32,16 @@ public class FootballService implements pl.example.restfootball.model.service.Se
         return exampleResponseEntity.getBody();
     }
 
-
+    @Override
+    public pl.example.restfootball.model.newv2model.Table getTable2() {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("X-Auth-Token","e62b55062bc74ffb85a000d6d42e6803");
+        HttpEntity httpEntity = new HttpEntity("parameters",httpHeaders);
+        ResponseEntity<pl.example.restfootball.model.newv2model.Table> exampleResponseEntity =restTemplate.exchange(serieATableN, HttpMethod.GET,httpEntity, pl.example.restfootball.model.newv2model.Table.class);
+//        System.out.println(exampleResponseEntity.getBody()
+        return exampleResponseEntity.getBody();
 
     }
+}
 

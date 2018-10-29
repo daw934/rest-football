@@ -7,5 +7,6 @@ public interface Service {
 
     Table getTeams();
     Example getTable1();
+    pl.example.restfootball.model.newv2model.Table getTable2();
 
 }
