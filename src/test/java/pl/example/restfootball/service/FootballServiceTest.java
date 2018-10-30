@@ -1,14 +1,10 @@
-package pl.example.restfootball.model.service;
-
-import static org.junit.Assert.*;
+package pl.example.restfootball.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
-import pl.example.restfootball.model.newv2model.Example;
-
-import java.util.Arrays;
+import pl.example.restfootball.model.newv2model.RootObject;
 
 
 class FootballServiceTest {
@@ -21,11 +17,11 @@ class FootballServiceTest {
 //    }
     @Test
     void getTable() {
-        FootballService footballService = new FootballService();
+        //FootballService footballService = new FootballService();
 //        Table table =footballService.getTeams();
 //        table.getTeams().forEach(object -> System.out.println(object.getName()));
 //        table.getTeams().get(0);
-//        Example example = footballService.getTable1();
+//        RootObject example = footballService.getTable1();
 
 
 //        example.getStanding().forEach(a-> System.out.println(a.getTeamName()));
@@ -41,11 +37,11 @@ class FootballServiceTest {
 //        httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 //        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 //        HttpEntity<String> entity = new HttpEntity<>("parameters", httpHeaders);
-//        ResponseEntity<Example> exampleResponseEntity =restTemplate.exchange(serieATableN, HttpMethod.GET,entity,Example.class);
+//        ResponseEntity<RootObject> exampleResponseEntity =restTemplate.exchange(serieATableN, HttpMethod.GET,entity,RootObject.class);
        HttpEntity httpEntity = new HttpEntity("parameters",httpHeaders);
-        ResponseEntity<Example> exampleResponseEntity =restTemplate.exchange(serieATableN, HttpMethod.GET,httpEntity,Example.class);
+        ResponseEntity<RootObject> exampleResponseEntity =restTemplate.exchange(serieATableN, HttpMethod.GET,httpEntity,RootObject.class);
 
-//        Example example1 = exampleResponseEntity.getBody();
+//        RootObject example1 = exampleResponseEntity.getBody();
 //        HttpEntity httpEntity = new HttpEntity();
 //        restTemplate.exchange(serieATableN,HttpMethod.GET,)
         System.out.println(exampleResponseEntity.getBody().getStandings().get(0).getTable().get(0).getPoints());

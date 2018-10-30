@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var jsonGet = function (league) {
+            $.ajax({
+                url: 'http://localhost:8080/api/v1/league/'+league+'/table',
+                dataType: 'json',
+                type: 'GET',
+                success: function (data) {
+                    $("#location").append(
+                        "<table id='table' border='1'><tr><th>Position</th><th>Team</th><th>Played</th><th>Points</th><th>Won</th><th>Lost</th><th>Goals</th></tr></table>")
+
+                    $.each(data, function (i, field) {
+
+                        $("#table").append(
+                            "<tr>"
+                            + "<td>" + field.position + "</td>"
+                            + "<td>" + field.teamName + "</td>"
+                            + "<td>" + field.playedGames + "</td>"
+                            + "<td>" + field.points + "</td>"
+                            + "<td>" + field.wins + "</td>"
+                            + "<td>" + field.losses + "</td>"
+                            + "<td>" + field.goals + "</td>"
+                            + "</tr>")
+                    });
+                }
+            });
+        };
+
+        $(document).ready(function(){
+            $("#number1").click(function(){
+                $("#number1")[0].disabled = true;
+                $("#number2")[0].disabled = false;
+                $('#table').remove();
+
+                jsonGet('seriea');
+
+            });
+            $("#number2").click(function () {
+                $("#number2")[0].disabled = true;
+                $("#number1")[0].disabled = false;
+                $('#table').remove();
+
+                jsonGet('premierleague');
+            })
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <a href="http://localhost:8080/seriea/table">tutaj</a>
+</div>
+<button id="number1">Serie A</button>
+<button id="number2">Premier League</button>
+
+<div id='location'>
+    <table id='table'><tr><th>Position</th><th>Team</th><th>Played</th><th>Points</th><th>Won</th><th>Lost</th><th>Goals</th></tr></table>
+</div>
+</body>
+</html>

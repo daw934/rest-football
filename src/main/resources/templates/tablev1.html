@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div th:if="${table}">-->
+<div>
+    <h3 th:text="${caption}"></h3>
+</div>
+<div>
+<table border="1">
+    <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Played</th>
+        <th>Points</th>
+        <th>Won</th>
+        <th>Lost</th>
+        <th>Goals</th>
+    </tr>
+    <tr th:each="table: ${tables}" th:object="${table}">
+        <td th:text="*{getPosition()}"></td>
+        <td th:text="*{getTeamName()}"></td>
+        <td th:text="*{getPlayedGames()}"></td>
+        <td th:text="*{getPoints()}"></td>
+        <td th:text="*{getWins()}"></td>
+        <td th:text="*{getLosses()}"></td>
+        <td th:text="*{getGoals()}"></td>
+    </tr>
+
+</table>
+</div>
+
+
+
+</body>
+</html>

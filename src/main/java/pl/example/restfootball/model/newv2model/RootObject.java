@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "season",
     "standings"
 })
-public class Example {
+public class RootObject {
 
     @JsonProperty("filters")
     private Filters filters;

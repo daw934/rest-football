@@ -4,30 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.example.restfootball.model.newv2model.RootObject;
-import pl.example.restfootball.service.Service;
 import pl.example.restfootball.model.v1model.Example;
+import pl.example.restfootball.service.Service;
 
 @RestController
-@RequestMapping(path = "api/v2/league")
-public class FootballRestController {
-
+@RequestMapping(path = "/api/v1/league")
+public class RestControllerV1 {
 
     private Service service;
 
     @Autowired
-    public FootballRestController(Service service) {
+    public RestControllerV1(Service service) {
         this.service = service;
     }
 
     @CrossOrigin
     @GetMapping("/{id}/table")
-    public ResponseEntity getTableV2(@PathVariable String id){
+    public ResponseEntity getTableV1(@PathVariable String id){
 
-        RootObject rootObject = service.getTableV2(id);
+        Example example = service.getTableV1(id);
         System.out.println("tutaj");
-        return new ResponseEntity(rootObject.getStandings().get(0).getTable(), HttpStatus.OK);
+        return new ResponseEntity(example.getStanding(), HttpStatus.OK);
     }
-
-
 }

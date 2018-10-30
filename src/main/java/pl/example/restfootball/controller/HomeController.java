@@ -7,17 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 //@RequestMapping(path =)
 public class HomeController {
 
-    @GetMapping
-    public String getMainPage(){
-        return "mainRest";
+    @GetMapping("/v2")
+    public String getV2age(){
+        return "resttablev2";
     }
-
-//    @GetMapping("/teams1")
-//     public ResponseEntity getTeams(){
-//        Table table = footballService.getTeams();
-//        System.out.println(table.getTeams().get(0).getName());
-//        return new ResponseEntity(table, HttpStatus.OK);
-//    }
-
-
+    @GetMapping("/v1")
+    public String getV1Page(){
+        return "resttablev1";
+    }
+    @GetMapping()
+    public String getMainPage(){
+        return "mainPage";
+    }
 }

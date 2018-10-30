@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.example.restfootball.model.newmodel.Table;
-import pl.example.restfootball.model.service.FootballService;
+
+import pl.example.restfootball.service.FootballService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
